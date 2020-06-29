@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="导航,分享," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.简单介绍​                SpringSecurity 权限框架Apache Shiro 是Java 的一个安全框架。Shiro 可以非常容易的开发出足够好的应用，其不仅可以用在JavaSE 环境，也可以用在JavaEE 环境。Shiro 可以帮助我们完成：认证、授权、加密、会话管理、与Web 集成、缓存等。 2.Shiro基础介绍1. Shiro三个核心组件 Subject">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shiro">
+<meta property="og:url" content="http://yoursite.com/2020/02/20/Shiro/index.html">
+<meta property="og:site_name" content="Ch to Blog">
+<meta property="og:description" content="1.简单介绍​                SpringSecurity 权限框架Apache Shiro 是Java 的一个安全框架。Shiro 可以非常容易的开发出足够好的应用，其不仅可以用在JavaSE 环境，也可以用在JavaEE 环境。Shiro 可以帮助我们完成：认证、授权、加密、会话管理、与Web 集成、缓存等。 2.Shiro基础介绍1. Shiro三个核心组件 Subject">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/14/8MlOJS.png">
+<meta property="article:published_time" content="2020-02-20T01:51:17.000Z">
+<meta property="article:modified_time" content="2020-03-14T13:39:34.782Z">
+<meta property="article:author" content="Ch">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/14/8MlOJS.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/20/Shiro/"/>
+
+
+
+
+
+  <title>Shiro | Ch to Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/caohao1030" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ch to Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/Shiro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ch">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/02/19/3AHoLQ.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ch to Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Shiro</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-20T09:51:17+08:00">
+                2020-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%89%A9%E5%B1%95/" itemprop="url" rel="index">
+                    <span itemprop="name">扩展</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/20/Shiro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/Shiro/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读数 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-简单介绍"><a href="#1-简单介绍" class="headerlink" title="1.简单介绍"></a>1.简单介绍</h2><p>​                SpringSecurity 权限框架Apache Shiro 是Java 的一个安全框架。Shiro 可以非常容易的开发出足够好的应用，其不仅可以用在JavaSE 环境，也可以用在JavaEE 环境。Shiro 可以帮助我们完成：认证、授权、加密、会话管理、与Web 集成、缓存等。</p>
+<h2 id="2-Shiro基础介绍"><a href="#2-Shiro基础介绍" class="headerlink" title="2.Shiro基础介绍"></a>2.Shiro基础介绍</h2><h3 id="1-Shiro三个核心组件"><a href="#1-Shiro三个核心组件" class="headerlink" title="1. Shiro三个核心组件"></a>1. Shiro三个核心组件</h3><ol>
+<li><p>Subject<br>  Subject：即“当前操作用发户”。但是，在Shiro中，Subject这一概念并不仅仅指人，也可以是第三方进程、后台帐户（Daemon Account）或其他类似事物。它仅仅意味着“当前跟软件交互的东西”。但考虑到大多数目的和用途，你可以把它认为是Shiro的“用户”概念。Subject代表了当前用户的安全操作，SecurityManager则管理所有用户的安全操作。</p>
+</li>
+<li><p>SecurityManager<br>  SecurityManager：它是Shiro框架的核心，典型的Facade模式，Shiro通过SecurityManager来管理内部组件实例，并通过它来提供安全管理的各种服务。</p>
+</li>
+<li><p>Realm<br>  Realm充当了Shiro与应用安全数据间的“桥梁”或者“连接器”。也就是说，当对用户执行认证（登录）和授权（访问控制）验证时，Shiro会从应用配置的Realm中查找用户及其权限信息。<br>     从这个意义上讲，Realm实质上是一个安全相关的DAO：它封装了数据源的连接细节，并在需要时将相关数据提供给Shiro。当配置Shiro时，你必须至少指定一个Realm，用于认证和（或）授权。配置多个Realm是可以的，但是至少需要一个。<br>     Shiro内置了可以连接大量安全数据源（又名目录）的Realm，如LDAP、关系数据库（JDBC）、类似INI的文本配置资源以及属性文件等。如果缺省的Realm不能满足需求，你还可以插入代表自定义数据源的自己的Realm实现。</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8MlOJS.png" alt=""></p>
+</li>
+</ol>
+<h3 id="2-Shiro相关类介绍"><a href="#2-Shiro相关类介绍" class="headerlink" title="2. Shiro相关类介绍"></a>2. Shiro相关类介绍</h3><h5 id="1-Authentication"><a href="#1-Authentication" class="headerlink" title="1.Authentication"></a>1.Authentication</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">身份认证&#x2F;登录，验证用户是不是拥有相应的身份；</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-Authorization"><a href="#2-Authorization" class="headerlink" title="2.Authorization"></a>2.Authorization</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">授权，即权限验证，验证某个已认证的用户是否拥有某个权限；即判断用户是否能做事情，常见的如：验证某个用户是否拥有某个角色。或者细粒度的验证某个用户对某个资源是否具有某个权限；</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-Session-Manager"><a href="#3-Session-Manager" class="headerlink" title="3.Session Manager"></a>3.Session Manager</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">会话管理，即用户登录后就是一次会话，在没有退出之前，它的所有信息都在会话中；会话可以是普通JavaSE环境的，也可以是如Web环境的；</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-Cryptography"><a href="#4-Cryptography" class="headerlink" title="4.Cryptography"></a>4.Cryptography</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加密，保护数据的安全性，如密码加密存储到数据库，而不是明文存储；</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-Web-Support"><a href="#5-Web-Support" class="headerlink" title="5.Web Support"></a>5.Web Support</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Web 支持，可以非常容易的集成到Web 环境；</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-Caching"><a href="#6-Caching" class="headerlink" title="6.Caching"></a>6.Caching</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">缓存，比如用户登录后，其用户信息、拥有的角色&#x2F;权限不必每次去查，这样可以提高效率；</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-Concurrency"><a href="#7-Concurrency" class="headerlink" title="7.Concurrency"></a>7.Concurrency</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shiro 支持多线程应用的并发验证，即如在一个线程中开启另一个线程，能 把权限自动传播过去；</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-Test"><a href="#8-Test" class="headerlink" title="8.Test"></a>8.Test</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供测试</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-Run-As"><a href="#9-Run-As" class="headerlink" title="9.Run As"></a>9.Run As</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许一个用户假装为另一个用户（如果他们允许）的身份进行访问；</span><br></pre></td></tr></table></figure>
+
+<h5 id="10-Remember-Me"><a href="#10-Remember-Me" class="headerlink" title="10.Remember Me"></a>10.Remember Me</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">记住我，这个是非常常见的功能，即一次登录后，下次再来的话不用登录了</span><br></pre></td></tr></table></figure>
+
+<p><font color=#FF0000 >注意：Shiro 不会去维护用户、维护权限；这些需要我们自己去设计/提供；然后通过</font></p>
+<h4 id="3-设计表"><a href="#3-设计表" class="headerlink" title="3.设计表"></a>3.设计表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> Navicat Premium Data Transfer</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Source Server         : 本地数据库</span></span><br><span class="line"><span class="comment"> Source Server Type    : MySQL</span></span><br><span class="line"><span class="comment"> Source Server Version : 50721</span></span><br><span class="line"><span class="comment"> Source Host           : localhost:3306</span></span><br><span class="line"><span class="comment"> Source Schema         : shiro</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Target Server Type    : MySQL</span></span><br><span class="line"><span class="comment"> Target Server Version : 50721</span></span><br><span class="line"><span class="comment"> File Encoding         : 65001</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Date: 14/03/2020 21:24:44</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">NAMES</span> utf8mb4;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for t_permission</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_permission`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_permission`</span>  (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`pname`</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`pcode`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> <span class="string">`pcode`</span>(<span class="string">`pcode`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> AUTO_INCREMENT = <span class="number">5</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8mb4 <span class="keyword">COLLATE</span> = utf8mb4_general_ci ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of t_permission</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_permission`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'新增用户'</span>, <span class="string">'user:add'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_permission`</span> <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'查询用户'</span>, <span class="string">'user:select'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_permission`</span> <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">'编辑用户'</span>, <span class="string">'user:update'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_permission`</span> <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="string">'删除用户'</span>, <span class="string">'user:delete'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for t_role</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_role`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_role`</span>  (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`rolename`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> AUTO_INCREMENT = <span class="number">3</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8mb4 <span class="keyword">COLLATE</span> = utf8mb4_general_ci ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of t_role</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'超级管理员'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role`</span> <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'普通用户'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for t_role_permission</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_role_permission`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_role_permission`</span>  (</span><br><span class="line">  <span class="string">`rid`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`pid`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`rid`</span>, <span class="string">`pid`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8mb4 <span class="keyword">COLLATE</span> = utf8mb4_general_ci ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of t_role_permission</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role_permission`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role_permission`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role_permission`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role_permission`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_role_permission`</span> <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for t_user</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_user`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_user`</span>  (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`username`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`password`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`salt`</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> AUTO_INCREMENT = <span class="number">3</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8mb4 <span class="keyword">COLLATE</span> = utf8mb4_general_ci ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of t_user</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_user`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'jack'</span>, <span class="string">'694823687186a97b0c61e42ae06a8b5e'</span>, <span class="string">'3t7C'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_user`</span> <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">'admin'</span>, <span class="string">'f841bbce57b2dedf6fec3bf08d3ac238'</span>, <span class="string">'1K2b'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for t_user_role</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`t_user_role`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`t_user_role`</span>  (</span><br><span class="line">  <span class="string">`uid`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`rid`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`uid`</span>, <span class="string">`rid`</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">InnoDB</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> = utf8mb4 <span class="keyword">COLLATE</span> = utf8mb4_general_ci ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of t_user_role</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_user_role`</span> <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`t_user_role`</span> <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-依赖"><a href="#4-依赖" class="headerlink" title="4.依赖"></a>4.依赖</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--shiro和thymeleaf整合--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.theborakompanioni<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-extras-shiro<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.27<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- shiro与spring整合包 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5-配置yml"><a href="#5-配置yml" class="headerlink" title="5.配置yml"></a>5.配置yml</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8088</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/shiro?characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">  <span class="attr">thymeleaf:</span></span><br><span class="line">    <span class="attr">cache:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-配置类"><a href="#6-配置类" class="headerlink" title="6.配置类"></a>6.配置类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> at.pollux.thymeleaf.shiro.dialect.ShiroDialect;</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.realm.CustomRealm;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.credential.CredentialsMatcher;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.credential.HashedCredentialsMatcher;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.codec.Base64;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.mgt.SecurityManager;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.spring.web.ShiroFilterFactoryBean;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.mgt.CookieRememberMeManager;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.mgt.DefaultWebSecurityManager;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.web.servlet.SimpleCookie;</span><br><span class="line"><span class="keyword">import</span> org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Shiro相关配置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShiroConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Web环境的</span></span><br><span class="line"><span class="comment">     * SecurityManager</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SecurityManager <span class="title">securityManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DefaultWebSecurityManager securityManager = <span class="keyword">new</span> DefaultWebSecurityManager();</span><br><span class="line">        <span class="comment">//关联自定义Realm</span></span><br><span class="line">        securityManager.setRealm(customRealm());</span><br><span class="line">        <span class="comment">//注入记住我管理器</span></span><br><span class="line">        securityManager.setRememberMeManager(rememberMeManager());</span><br><span class="line">        <span class="keyword">return</span> securityManager;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * cookie对象;</span></span><br><span class="line"><span class="comment"> * rememberMeCookie()方法是设置Cookie的生成模版，比如cookie的name，cookie的有效时间等等。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SimpleCookie <span class="title">rememberMeCookie</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println("ShiroConfiguration.rememberMeCookie()");</span></span><br><span class="line">        <span class="comment">//这个参数是cookie的名称，对应前端的checkbox的name = rememberMe</span></span><br><span class="line">        SimpleCookie simpleCookie = <span class="keyword">new</span> SimpleCookie(<span class="string">"rememberMe"</span>);</span><br><span class="line">        <span class="comment">//&lt;!-- 记住我cookie生效时间30天 ,单位秒;--&gt;</span></span><br><span class="line">        simpleCookie.setMaxAge(<span class="number">259200</span>);</span><br><span class="line">        <span class="keyword">return</span> simpleCookie;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * cookie管理对象;</span></span><br><span class="line"><span class="comment">     * rememberMeManager()方法是生成rememberMe管理器，而且要将这个rememberMe管理器设置到securityManager中</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CookieRememberMeManager <span class="title">rememberMeManager</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println("ShiroConfiguration.rememberMeManager()");</span></span><br><span class="line">        CookieRememberMeManager cookieRememberMeManager = <span class="keyword">new</span> CookieRememberMeManager();</span><br><span class="line">        cookieRememberMeManager.setCookie(rememberMeCookie());</span><br><span class="line">        <span class="comment">//rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)</span></span><br><span class="line">        cookieRememberMeManager.setCipherKey(Base64.decode(<span class="string">"2AvVhdsgUs0FSA3SDFAdag=="</span>));</span><br><span class="line">        <span class="keyword">return</span> cookieRememberMeManager;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将自定义Realm注入进去</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CustomRealm <span class="title">customRealm</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CustomRealm customRealm = <span class="keyword">new</span> CustomRealm();</span><br><span class="line">        customRealm.setCredentialsMatcher(credentialsMatcher());</span><br><span class="line">        <span class="keyword">return</span> customRealm;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 密码凭证器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CredentialsMatcher <span class="title">credentialsMatcher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        HashedCredentialsMatcher hashedCredentialsMatcher = <span class="keyword">new</span> HashedCredentialsMatcher();</span><br><span class="line">        hashedCredentialsMatcher.setHashAlgorithmName(<span class="string">"md5"</span>);</span><br><span class="line">        <span class="comment">//加密的次数</span></span><br><span class="line">        hashedCredentialsMatcher.setHashIterations(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> hashedCredentialsMatcher;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Filter工厂:配置url对应的过滤器（那些请求需要什么权限才能访问)</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ShiroFilterFactoryBean <span class="title">shiroFilterFactoryBean</span><span class="params">(SecurityManager securityManager)</span> </span>&#123;</span><br><span class="line">        ShiroFilterFactoryBean shiroFilterFactoryBean = <span class="keyword">new</span> ShiroFilterFactoryBean();</span><br><span class="line">        <span class="comment">//设置安全管理器</span></span><br><span class="line">        shiroFilterFactoryBean.setSecurityManager(securityManager);</span><br><span class="line">        LinkedHashMap&lt;String, String&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//退出 指定 /logout 为退出操作</span></span><br><span class="line">        map.put(<span class="string">"/logout"</span>, <span class="string">"logout"</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        anno:无需认证就可以访问</span></span><br><span class="line"><span class="comment">        authc：必须认证才能访问</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">//所有请求都需要进行认证</span></span><br><span class="line">        map.put(<span class="string">"/login"</span>,<span class="string">"anon"</span>);</span><br><span class="line">        map.put(<span class="string">"/favicon.ico"</span>,<span class="string">"anon"</span>);</span><br><span class="line">        map.put(<span class="string">"/**"</span>,<span class="string">"user"</span>);</span><br><span class="line">        <span class="comment">//设置过滤规则</span></span><br><span class="line">        shiroFilterFactoryBean.setLoginUrl(<span class="string">"/login"</span>);<span class="comment">//登录页面设置</span></span><br><span class="line">        <span class="comment">//shiroFilterFactoryBean.setSuccessUrl("/home");//一般不在这设置，在登录成功之后在controller中进行跳转</span></span><br><span class="line">        <span class="comment">//设置未授权页面</span></span><br><span class="line">        shiroFilterFactoryBean.setUnauthorizedUrl(<span class="string">"/unauthorized"</span>);</span><br><span class="line">        <span class="comment">//将一个规则的map统一设置给shiroFilterFactoryBean</span></span><br><span class="line">        shiroFilterFactoryBean.setFilterChainDefinitionMap(map);</span><br><span class="line">        <span class="keyword">return</span> shiroFilterFactoryBean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//AOP相关的</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DefaultAdvisorAutoProxyCreator <span class="title">defaultAdvisorAutoProxyCreator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator = <span class="keyword">new</span> DefaultAdvisorAutoProxyCreator();</span><br><span class="line">        defaultAdvisorAutoProxyCreator.setProxyTargetClass(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> defaultAdvisorAutoProxyCreator;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> AuthorizationAttributeSourceAdvisor <span class="title">authorizationAttributeSourceAdvisor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = <span class="keyword">new</span> AuthorizationAttributeSourceAdvisor();</span><br><span class="line">        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager());</span><br><span class="line">        <span class="keyword">return</span> authorizationAttributeSourceAdvisor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//shiro和thymeleaf整合组件</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ShiroDialect <span class="title">shiroDialect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ShiroDialect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-异常处理"><a href="#7-异常处理" class="headerlink" title="7.异常处理"></a>7.异常处理</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.shiro.authz.AuthorizationException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ControllerAdvice;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ExceptionHandler;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalExceptionHandler</span> </span>&#123;</span><br><span class="line">    <span class="comment">//捕捉未授权的异常</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(AuthorizationException<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">    <span class="title">public</span> <span class="title">String</span> <span class="title">handleAuthorizationException</span>()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"unauthorized"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他异常返回登陆页面</span></span><br><span class="line">    <span class="meta">@ExceptionHandler</span>(Exception<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">    <span class="title">public</span> <span class="title">String</span> <span class="title">handleOtherException</span>()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"login"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-自定义Realm"><a href="#8-自定义Realm" class="headerlink" title="8.自定义Realm"></a>8.自定义Realm</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.example.springbootshiro.pojo.User;</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.service.IPermissionService;</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.service.IRoleService;</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.service.IUserService;</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.shiro.ShiroUser;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.AuthenticationException;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.AuthenticationInfo;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.AuthenticationToken;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.SimpleAuthenticationInfo;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authz.AuthorizationInfo;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authz.SimpleAuthorizationInfo;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.realm.AuthorizingRealm;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.subject.PrincipalCollection;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.util.ByteSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">CustomRealm</span> <span class="keyword">extends</span> <span class="title">AuthorizingRealm</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IUserService userService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IRoleService roleService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IPermissionService permissionService;</span><br><span class="line">    <span class="comment">//认证  只要点登录就会走这个方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> AuthenticationInfo <span class="title">doGetAuthenticationInfo</span><span class="params">(AuthenticationToken authenticationToken)</span> <span class="keyword">throws</span> AuthenticationException </span>&#123;</span><br><span class="line">        <span class="comment">//拿到当前的对象</span></span><br><span class="line">        String principal = (String)authenticationToken.getPrincipal();</span><br><span class="line">        <span class="comment">//查询当前对象是否具有</span></span><br><span class="line">        User user = userService.findUserByName(principal);</span><br><span class="line">        <span class="keyword">if</span> (user != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">//查询当前对象所具有的角色</span></span><br><span class="line">            Set&lt;String&gt; roles = roleService.queryRolesByName(principal);</span><br><span class="line">            <span class="comment">//查询当前对象所具有的权限</span></span><br><span class="line">            Set&lt;String&gt; permissions = permissionService.queryPermissonsByName(principal);</span><br><span class="line">            System.out.println(roles);</span><br><span class="line">            System.out.println(permissions);</span><br><span class="line">            <span class="comment">//所有信息进行封装</span></span><br><span class="line">            ShiroUser shiroUser = <span class="keyword">new</span> ShiroUser(user, roles, permissions);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> SimpleAuthenticationInfo(shiroUser, user.getPassword(), ByteSource.Util.bytes(user.getSalt()), <span class="keyword">this</span>.getName());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//授权</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> AuthorizationInfo <span class="title">doGetAuthorizationInfo</span><span class="params">(PrincipalCollection principalCollection)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//得到当前用户对象信息</span></span><br><span class="line">        ShiroUser shiroUser = (ShiroUser)principalCollection.getPrimaryPrincipal();</span><br><span class="line">        SimpleAuthorizationInfo info = <span class="keyword">new</span> SimpleAuthorizationInfo(shiroUser.getRoleNames());</span><br><span class="line">        <span class="comment">//设置当前用户的权限</span></span><br><span class="line">        info.setStringPermissions(shiroUser.getPermissionNames());</span><br><span class="line">        <span class="keyword">return</span> info;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-Controller层"><a href="#9-Controller层" class="headerlink" title="9.Controller层"></a>9.Controller层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.example.springbootshiro.shiro.ShiroUser;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.SecurityUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.IncorrectCredentialsException;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.UnknownAccountException;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authc.UsernamePasswordToken;</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.subject.Subject;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(String username, String password, Model model, HttpSession session,<span class="keyword">boolean</span> rememberMe)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取当前的用户</span></span><br><span class="line">        Subject subject = SecurityUtils.getSubject();</span><br><span class="line">        <span class="comment">//封装用户登陆数据</span></span><br><span class="line">        <span class="comment">//下面是有记住我功能的</span></span><br><span class="line">        UsernamePasswordToken token=<span class="keyword">new</span> UsernamePasswordToken(username,password,rememberMe);</span><br><span class="line"><span class="comment">//        UsernamePasswordToken token = new UsernamePasswordToken(username, password);</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            subject.login(token);<span class="comment">//执行登录的方法，如果没有异常就说明OK</span></span><br><span class="line">            ShiroUser user= (ShiroUser) SecurityUtils.getSubject().getPrincipal();</span><br><span class="line">            session.setAttribute(<span class="string">"user"</span>,user);</span><br><span class="line">            <span class="comment">//登陆成功</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">"home"</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnknownAccountException e) &#123; <span class="comment">//用户名不存在</span></span><br><span class="line">            model.addAttribute(<span class="string">"msg"</span>,<span class="string">"用户名错误"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"login"</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IncorrectCredentialsException e)&#123;  <span class="comment">//密码不存在</span></span><br><span class="line">            model.addAttribute(<span class="string">"msg"</span>,<span class="string">"密码不存在"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"login"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">====================================================================</span><br><span class="line"><span class="keyword">import</span> org.apache.shiro.authz.annotation.RequiresPermissions;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"login"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/unauthorized"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">unauthorized</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"unauthorized"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequiresPermissions</span>(<span class="string">"user:add"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/adduser"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"add user"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequiresPermissions</span>(<span class="string">"user:delete"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/deleteuser"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">deleteUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"delete user"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@RequiresPermissions</span>(<span class="string">"user:update"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/updateuser"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">updateUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"update user"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 基于注解实现权限控制</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequiresPermissions</span>(<span class="string">"user:select"</span>)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/selectuser"</span>)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">selectUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"select user"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-mapper层"><a href="#10-mapper层" class="headerlink" title="10.mapper层"></a>10.mapper层</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.example.springbootshiro.pojo.Permission;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Select;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PermissionMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT * FROM  t_permission \n"</span> +</span><br><span class="line">            <span class="string">"WHERE id IN (\n"</span> +</span><br><span class="line">            <span class="string">"SELECT rp.pid FROM t_user_role ur,t_user u,t_role_permission rp WHERE u.id = ur.uid AND u.`username` = #&#123;name&#125;\n"</span> +</span><br><span class="line">            <span class="string">"AND rp.rid = ur.rid\n"</span> +</span><br><span class="line">            <span class="string">")"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Permission&gt; <span class="title">selectPermissionsByUserName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">=================================================</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.pojo.Role;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Select;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RoleMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT\n"</span> +</span><br><span class="line">            <span class="string">"r.*\n"</span> +</span><br><span class="line">            <span class="string">"FROM t_role r WHERE id IN\n"</span> +</span><br><span class="line">            <span class="string">"(\n"</span> +</span><br><span class="line">            <span class="string">"SELECT ur.rid FROM t_user_role ur,t_user u WHERE u.id = ur.uid AND u.`username` = #&#123;name&#125;\n"</span> +</span><br><span class="line">            <span class="string">")\n"</span>)  <span class="comment">//根据名字查询用户对用角色的集合</span></span><br><span class="line">    <span class="function">List&lt;Role&gt; <span class="title">selectRoleByUserName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">==================================================</span><br><span class="line"><span class="keyword">import</span> com.example.springbootshiro.pojo.User;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Select;</span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span>  <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"select * from t_user where username = #&#123;name&#125;"</span>)</span><br><span class="line">    <span class="function">User <span class="title">selectByName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-实体类"><a href="#11-实体类" class="headerlink" title="11.实体类"></a>11.实体类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Permission</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String pname;</span><br><span class="line">    <span class="keyword">private</span> String pcode;</span><br><span class="line">=============================================</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Role</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String rolename;</span><br><span class="line">=============================================</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">=============================================</span><br><span class="line">    <span class="comment">//注意这是单独的一个实体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShiroUser</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;String&gt; roleNames;</span><br><span class="line">    <span class="keyword">private</span> Set&lt;String&gt; permissionNames;</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-Serice接口和实现类"><a href="#12-Serice接口和实现类" class="headerlink" title="12.Serice接口和实现类"></a>12.Serice接口和实现类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IUserService</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保证username唯一，username是登录的用户名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> username</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">User <span class="title">findUserByName</span><span class="params">(String username)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">======================================</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IRoleService</span> </span>&#123;</span><br><span class="line">    <span class="function">Set&lt;String&gt; <span class="title">queryRolesByName</span><span class="params">(String username)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">======================================</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IPermissionService</span> </span>&#123;</span><br><span class="line">    <span class="function">Set&lt;String&gt; <span class="title">queryPermissonsByName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">IUserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findUserByName</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userMapper.selectByName(username);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">=======================================</span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoleServiceImpl</span> <span class="keyword">implements</span> <span class="title">IRoleService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RoleMapper roleMapper;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;String&gt; <span class="title">queryRolesByName</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        List&lt;Role&gt; roles = roleMapper.selectRoleByUserName(username);</span><br><span class="line">        <span class="comment">//取出来的roles是个集合，但是我们需要名称所以下面操作</span></span><br><span class="line">        Set&lt;String&gt; roleSets = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Role role : roles) &#123;</span><br><span class="line">            roleSets.add(role.getRolename());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//这样得到了用户对应的名称</span></span><br><span class="line">        <span class="keyword">return</span> roleSets;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">=========================================</span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PermissionServiceImpl</span> <span class="keyword">implements</span> <span class="title">IPermissionService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> PermissionMapper permissionMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;String&gt; <span class="title">queryPermissonsByName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        List&lt;Permission&gt; permissions = permissionMapper.selectPermissionsByUserName(name);</span><br><span class="line">        Set&lt;String&gt; permissionSets = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Permission permission : permissions) &#123;</span><br><span class="line">            permissionSets.add(permission.getPcode());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//通过用户返回得到对应的权限</span></span><br><span class="line">        <span class="keyword">return</span> permissionSets;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-页面"><a href="#13-页面" class="headerlink" title="13.页面"></a>13.页面</h4><p>登录 login.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">P</span> <span class="attr">th:text</span>=<span class="string">"$&#123;msg&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">P</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"rememberMe"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>登陆成功页面 home.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">xmlns:shiro</span>=<span class="string">"http://www.pollix.at/thymeleaf/shiro"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">欢迎您[[$&#123;session.user.getUser().getUsername()&#125;]]</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">"$&#123;session.user.getUser().getUsername()&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">当用户有该权限时才会显示</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">shiro:hasPermission</span>=<span class="string">"user:select"</span> <span class="attr">href</span>=<span class="string">"/selectuser"</span>&gt;</span>查询用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">shiro:hasPermission</span>=<span class="string">"user:add"</span> <span class="attr">href</span>=<span class="string">"/adduser"</span>&gt;</span>新增用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">shiro:hasPermission</span>=<span class="string">"user:delete"</span> <span class="attr">href</span>=<span class="string">"/deleteuser"</span>&gt;</span>删除用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">shiro:hasPermission</span>=<span class="string">"user:update"</span> <span class="attr">href</span>=<span class="string">"/updateuser"</span>&gt;</span>编辑用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/logout"</span>&gt;</span>注销<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>未授权页面 unauthorized.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">没有权限</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"><i class="fa fa-google"></i> 导航</a>
+          
+            <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"><i class="fa fa-google"></i> 分享</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/20/Thymeleaf/" rel="next" title="Thymeleaf">
+                <i class="fa fa-chevron-left"></i> Thymeleaf
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/22/SpringBoot/" rel="prev" title="SpringBoot">
+                SpringBoot <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s2.ax1x.com/2020/02/19/3AHoLQ.jpg"
+                alt="Ch" />
+            
+              <p class="site-author-name" itemprop="name">Ch</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/caohao1030" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="//weibo.com/Caohao1030" target="_blank" title="weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="" title="QQ:1105725212" target="_blank">QQ:1105725212</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简单介绍"><span class="nav-number">1.</span> <span class="nav-text">1.简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Shiro基础介绍"><span class="nav-number">2.</span> <span class="nav-text">2.Shiro基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Shiro三个核心组件"><span class="nav-number">2.1.</span> <span class="nav-text">1. Shiro三个核心组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Shiro相关类介绍"><span class="nav-number">2.2.</span> <span class="nav-text">2. Shiro相关类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Authentication"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">1.Authentication</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Authorization"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">2.Authorization</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Session-Manager"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">3.Session Manager</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Cryptography"><span class="nav-number">2.2.0.4.</span> <span class="nav-text">4.Cryptography</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Web-Support"><span class="nav-number">2.2.0.5.</span> <span class="nav-text">5.Web Support</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-Caching"><span class="nav-number">2.2.0.6.</span> <span class="nav-text">6.Caching</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-Concurrency"><span class="nav-number">2.2.0.7.</span> <span class="nav-text">7.Concurrency</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-Test"><span class="nav-number">2.2.0.8.</span> <span class="nav-text">8.Test</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-Run-As"><span class="nav-number">2.2.0.9.</span> <span class="nav-text">9.Run As</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-Remember-Me"><span class="nav-number">2.2.0.10.</span> <span class="nav-text">10.Remember Me</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设计表"><span class="nav-number">2.2.1.</span> <span class="nav-text">3.设计表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-依赖"><span class="nav-number">2.2.2.</span> <span class="nav-text">4.依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-配置yml"><span class="nav-number">2.2.3.</span> <span class="nav-text">5.配置yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-配置类"><span class="nav-number">2.2.4.</span> <span class="nav-text">6.配置类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-异常处理"><span class="nav-number">2.2.5.</span> <span class="nav-text">7.异常处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-自定义Realm"><span class="nav-number">2.2.6.</span> <span class="nav-text">8.自定义Realm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Controller层"><span class="nav-number">2.2.7.</span> <span class="nav-text">9.Controller层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-mapper层"><span class="nav-number">2.2.8.</span> <span class="nav-text">10.mapper层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-实体类"><span class="nav-number">2.2.9.</span> <span class="nav-text">11.实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-Serice接口和实现类"><span class="nav-number">2.2.10.</span> <span class="nav-text">12.Serice接口和实现类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-页面"><span class="nav-number">2.2.11.</span> <span class="nav-text">13.页面</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ch</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访问数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人数
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'AkVEGQIGt54qqenpIB78e8SK-gzGzoHsz',
+        appKey: '1WCoWsAcmztkoyYT3gIaPgM7',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
